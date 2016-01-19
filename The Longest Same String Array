@@ -1,0 +1,50 @@
+	#include <iostream>
+using namespace std;
+void main()
+{
+	char str1[100],str2[100],str[100];
+	cin.ignore(1000,'\n');
+	cout<<"Enter string 1:";
+	cin.getline(str1,100,'\n');
+	cout<<"Enter string 2:";
+	cin.getline(str2,100,'\n');
+	cout<<"Enter string:";
+	cin.getline(str,100,'\n');
+	int k2=0,max2=0,len1,len2;
+	len1=strlen(str1);
+	len2=strlen(str2);
+	for(int i=0;i<len1;i++)
+	{
+		for(int j=0;j<len2;j++)
+		{
+			while(str1[i+k2]==str2[j+k2]&&i+k2<len1&&j+k2<len2)
+			{
+				k2++;
+			}
+			if(k2>max2)
+			{
+				max2=k2;
+			}
+			k2=0;
+		}
+	}
+	for(int i=0;i<len1;i++)
+	{
+		for(int j=0;j<len2;j++)
+		{
+			while(str1[i+k2]==str2[j+k2]&&i+k2<len1&&j+k2<len2)
+			{
+				k2++;
+			}
+			if(k2==max2)
+			{
+				for(int k=i;k<i+k2;k++)
+				{
+					cout<<str1[k];
+				}
+				cout<<endl;
+			}
+			k2=0;
+		}
+	}
+}
